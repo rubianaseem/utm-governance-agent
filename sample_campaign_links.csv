@@ -1,0 +1,9 @@
+link_id,created_by,team,platform,placement,launch_date,url,contacts_created
+L001,Sam Okafor,Paid,Google Ads,Search - brand,2026-10-01,https://acme.example/demo?utm_source=Google&utm_medium=CPC&utm_campaign=2026-q4-demo-push,14
+L002,Brightline Agency,Agency,LinkedIn Ads,Sponsored content,2026-10-03,https://acme.example/demo?utm_source=LinkedIn&utm_medium=linkedin_ad&utm_campaign=Q4%20Demo%20Push,9
+L003,Nadia Brooks,Lifecycle,HubSpot marketing email,October newsletter,2026-10-07,https://acme.example/blog/ai-ops-guide?utm_source=newsletter&utm_medium=Email&utm_campaign=october_newsletter,6
+L004,Nadia Brooks,Lifecycle,Customer.io,Webinar invite #2,2026-10-09,https://acme.example/webinar?utm_source=customerio&utm_campaign=2026-q4-webinar-ai-ops,11
+L005,Leo Martins,Events,QR code,Booth banner,2026-10-14,https://acme.example/demo?utm_source=event&utm_medium=qr&utm_campaign=saastr-london-booth,7
+L006,Web team,Website,Homepage banner,Hero banner,2026-10-10,https://acme.example/webinar?utm_source=homepage&utm_medium=banner&utm_campaign=2026-q4-webinar-ai-ops,5
+L007,Ana Ruiz,Social,Meta Ads,Retargeting carousel,2026-10-12,https://acme.example/demo?utm_source=fb&utm_medium=paid_social&utm_campaign=2026-Q4-Retargeting,4
+L008,Sam Okafor,Paid,Google Ads,Search - generic,2026-10-02,https://acme.example/demo?utm_source=google&utm_medium=cpc&utm_campaign=2026-q4-demo-push,18
