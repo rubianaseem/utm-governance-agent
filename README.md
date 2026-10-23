@@ -1,4 +1,4 @@
-# 🏷️ UTM Governance Agent
+# UTM Governance Agent
 
 **One campaign, one row in your reports. Catch broken UTMs before launch, and fix the ones already live.**
 
@@ -6,7 +6,7 @@
 
 ---
 
-## 🧠 The pain point
+## The pain point
 
 Every marketing team has a UTM naming doc. Then the paid team types `Google`, the agency sends `linkedin_ad`, lifecycle forgets `utm_medium`, and a month later one campaign is split across three rows and nobody trusts the attribution numbers. Prevention beats audits, so this has a pre-launch check, plus an audit for everything that already slipped through.
 
@@ -15,7 +15,7 @@ Every marketing team has a UTM naming doc. Then the paid team types `Google`, th
 
 ---
 
-## ✨ What it does
+## What it does
 
 - **One taxonomy in one place:** approved sources with their typed variants, a closed list of mediums, and a campaign naming rule
 - **Catches what splits reports:** capitals, spaces, aliases, channel names used as a medium, missing source or medium, free-text campaign names
@@ -26,7 +26,7 @@ Every marketing team has a UTM naming doc. Then the paid team types `Google`, th
 
 ---
 
-## 🗺 Where each step runs
+## Where each step runs
 
 1. **GitHub** holds the code. Clone it or click **Code → Download ZIP**.
 2. **Terminal** is where you run it on your UTM sheet or contact export: `python agent.py --input your_file.csv`, or `--check "https://..."` for one link.
@@ -37,7 +37,7 @@ Every marketing team has a UTM naming doc. Then the paid team types `Google`, th
 
 ---
 
-## 🚀 Quick start
+## Quick start
 
 ```bash
 git clone https://github.com/rubianaseem/utm-governance-agent.git
@@ -55,7 +55,7 @@ python agent.py --check "https://yoursite.com/demo?utm_source=LinkedIn&utm_mediu
 
 ---
 
-## 📟 Example output
+## Example output
 
 On `sample_campaign_links.csv` (8 fictional links with made-up contact counts), with no API key:
 
@@ -74,7 +74,7 @@ Split report rows (one real value, several raw values):
 
 ---
 
-## 📚 More
+## More
 
 - [SETUP.md](SETUP.md): checking links before launch, Claude, your real UTM data, cleaning historical UTMs in HubSpot or your warehouse, extending it, troubleshooting
 - [docs/DETAILS.md](docs/DETAILS.md): all the pain-point quotes, full feature list and example output (with the SQL), cost, stack swap table, customising, how this runs today vs production, and what's in the repo

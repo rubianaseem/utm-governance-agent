@@ -13,7 +13,7 @@ This agent reads your campaign links (or the UTM properties on a HubSpot or Sale
 If you can create a repo but aren't sure where you actually *run* this, here's the whole flow in order:
 
 1. **GitHub** is where the code lives. Copy it to your laptop with `git clone https://github.com/rubianaseem/utm-governance-agent.git`, or click **Code → Download ZIP** and unzip it.
-2. **Terminal** (Mac Terminal, or the terminal inside Cursor) is where you run the script on your CSV: your UTM tracking sheet, a link export, or a HubSpot contact export with UTM properties. Set it up once, then run `python agent.py --input your_file.csv` (see [Quick start](../README.md#-quick-start)). To check one link before launch, run `python agent.py --check "https://..."`.
+2. **Terminal** (Mac Terminal, or the terminal inside Cursor) is where you run the script on your CSV: your UTM tracking sheet, a link export, or a HubSpot contact export with UTM properties. Set it up once, then run `python agent.py --input your_file.csv` (see [Quick start](../README.md#quick-start)). To check one link before launch, run `python agent.py --check "https://..."`.
 3. **Claude is optional.** With no API key the agent uses its built-in rules. If you add an Anthropic API key to `.env`, it asks Claude to suggest clean values for the links the rules can't settle (an unknown source, a free-text campaign name) and to write the summary. It still runs in the terminal. You don't open the Claude app or paste anything into a chat.
 4. **You, then your tools.** Open `out/utm_report.md` and `out/utm_audit.csv`, check the rows marked *review*, then swap the fixed links into your ads, emails and QR codes yourself. Use `out/utm_mapping.csv` or `out/normalize_utms.sql` to clean historical data in your reporting layer, and, if you ran it on a HubSpot contact export, import `out/import_clean_utms.csv` into clean UTM properties (steps in [SETUP.md](../SETUP.md#6-optional-clean-historical-utms-in-hubspot-or-your-warehouse)).
 
@@ -143,12 +143,12 @@ CASE
 END AS utm_source_clean,
 ```
 
-## 💷 Cost (estimate)
+## Cost (estimate)
 
 - **Without an API key:** free. It's plain Python running on your laptop.
 - **With `ANTHROPIC_API_KEY`:** Claude is only called for rows the rules mark *review* (unknown or vague source, campaign name that doesn't fit the rule), plus one call for the summary. Clean rows and rows the rules can fix never go to Claude. My rough estimate, based on [Anthropic's list pricing](https://platform.claude.com/docs/en/about-claude/pricing) for Claude Sonnet 5.5 ($2 per million input tokens, $10 per million output tokens) and about 600 input and 100 output tokens per call, is a fraction of a US cent per call: around a cent for the sample, and well under a dollar for a few hundred review rows. I haven't measured this on a large real export, so treat it as a ballpark. `--max-llm-links` (default 100) caps how many rows go to Claude per run.
 
-## 🔁 Stack swap table
+## Stack swap table
 
 | Layer | In this repo | Swap for |
 |---|---|---|
@@ -160,7 +160,7 @@ END AS utm_source_clean,
 | Output | Local CSV, SQL, Markdown | A HubSpot normalisation workflow, a dbt model or BigQuery view, a Slack alert to the link owner |
 | Orchestration | You run it, or `--check` per link | n8n / Zapier / Make on new rows in the tracking sheet, or a weekly audit |
 
-## 🛠 Customise it for your stack
+## Customise it for your stack
 
 Everything you'll want to tune is at the top of `agent.py`:
 
@@ -172,7 +172,7 @@ Everything you'll want to tune is at the top of `agent.py`:
 - **`INTERNAL_DOMAINS`** (in `.env`): your own domains, so UTMs on internal banners are caught
 - **`ALIASES`:** your exact export headers, e.g. `UTM Campaign (first touch)` or a custom Salesforce field
 
-## 🧭 How this runs today (and what production would add)
+## How this runs today (and what production would add)
 
 I want to be straight about what this is: a working **audit and check tool you run on a file**, not a link-governance platform.
 
@@ -192,7 +192,7 @@ I want to be straight about what this is: a working **audit and check tool you r
 - A warehouse model (dbt or a BigQuery view) built from `utm_mapping.csv`, owned by marketing ops
 - One owner and an approval step for new sources and mediums, with a change log
 
-## 📁 What's in the repo
+## What's in the repo
 
 ```
 utm-governance-agent/
